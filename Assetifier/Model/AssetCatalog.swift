@@ -78,9 +78,6 @@ extension AssetCatalog {
             }
         self.init(imageNames: ims ?? [], colorNames: cls ?? [], url:url)
     }
-
-  
-
 }
 
 

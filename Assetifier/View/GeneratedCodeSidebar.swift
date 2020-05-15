@@ -60,9 +60,7 @@ struct GeneratedCodeSidebar: View {
                 .disabled(!assetCatalog.hasColors)
             }
             .padding([.leading, .bottom], 8)
-            
-            //                Spacer(minLength: 8)
-            
+                        
             VStack(alignment: .leading) {
                 Toggle(isOn: $settings.createUIImageExtension) {
                     Text("UIImage")
@@ -92,12 +90,12 @@ struct GeneratedCodeSidebar: View {
                         }    }
 }
 
-//struct GeneratedCodeSidebar_Previews: PreviewProvider {
-//        
-//    static let MockCatalog = AssetCatalog(imageNames: ["barbell"], colorNames: ["turquoise"])
-//    
-//    static var previews: some View {
-//        GeneratedCodeSidebar(settings: MockCatalog.codeGenerationSettings, assetCatalog: MockCatalog)
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
+struct GeneratedCodeSidebar_Previews: PreviewProvider {
+        
+    static let MockCatalog = AssetCatalog(imageNames: ["barbell"], colorNames: ["turquoise"])
+    
+    static var previews: some View {
+        GeneratedCodeSidebar(settings: MockCatalog.codeGenerationSettings, assetCatalog: MockCatalog)
+            .previewLayout(.sizeThatFits)
+    }
+}

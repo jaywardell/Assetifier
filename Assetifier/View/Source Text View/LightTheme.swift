@@ -1,5 +1,5 @@
 //
-//  SourceCodeTheme.swift
+//  DarkTheme.swift
 //  AssetCatalogConstants
 //
 //  Created by Joseph A. Wardell on 5/14/20.
@@ -10,46 +10,48 @@ import Foundation
 
 import Sourceful
 
-/// A source code theme very much like the default
-/// but with a gray comment color
-public struct MySourceCodeTheme: SourceCodeTheme {
+
+/// meant to be shown when the system is in light mode
+/// for some reason, the text view's background and plain text color won't change from the dark mode
+/// so for now this is unused
+public struct LightTheme: SourceCodeTheme {
     
     public init() {
         
     }
     
     private static var lineNumbersColor: Color {
-        return Color(red: 100/255, green: 100/255, blue: 100/255, alpha: 1.0)
+        return Color(.lightLineNumbers)!
     }
     
     public let lineNumbersStyle: LineNumbersStyle? = LineNumbersStyle(font: Font(name: "Menlo", size: 16)!, textColor: lineNumbersColor)
     
-    public let gutterStyle: GutterStyle = GutterStyle(backgroundColor: Color(red: 21/255.0, green: 22/255, blue: 31/255, alpha: 1.0), minimumWidth: 32)
+    public let gutterStyle: GutterStyle = GutterStyle(backgroundColor: Color(.lightGutter)!, minimumWidth: 32)
     
     public let font = Font(name: "Menlo", size: 15)!
     
-    public let backgroundColor = Color(red: 31/255.0, green: 32/255, blue: 41/255, alpha: 1.0)
+    public let backgroundColor = Color(.lightBackground)!
     
     public func color(for syntaxColorType: SourceCodeTokenType) -> Color {
         
         switch syntaxColorType {
         case .plain:
-            return .white
+            return Color(.lightTextPlain)!
             
         case .number:
-            return Color(red: 116/255, green: 109/255, blue: 176/255, alpha: 1.0)
+            return Color(.lightTextNumber)!
             
         case .string:
-            return Color(red: 211/255, green: 35/255, blue: 46/255, alpha: 1.0)
+            return Color(.lightTextString)!
             
         case .identifier:
-            return Color(red: 20/255, green: 156/255, blue: 146/255, alpha: 1.0)
+            return Color(.lightTextIdentifier)!
             
         case .keyword:
-            return Color(red: 215/255, green: 0, blue: 143/255, alpha: 1.0)
+            return Color(.lightTextKeyword)!
             
         case .comment:
-            return Color(white: 0.61, alpha: 1)
+            return Color(.lightTextComment)!
             
         case .editorPlaceholder:
             return backgroundColor

@@ -18,7 +18,7 @@ struct CodeGnerator {
     
     let settings : CodeGenerationSettings
     
-        var source : String {
+    var source : String {
             
             let imagesTemplate =
     """

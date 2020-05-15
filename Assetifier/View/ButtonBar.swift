@@ -12,22 +12,8 @@ struct ButtonBar: View {
     var body: some View {
         HStack {
             Button(action: toggleSidebar) {
-                
-                
-                
-                
-                
-                
-                
                 Image(.sidebar)
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                .resizable()
+                    .resizable()
                     .frame(width: 21, height: 21)
             }
             .buttonStyle(BorderlessButtonStyle())
@@ -73,9 +59,7 @@ struct ButtonBar: View {
       }
       
       private func save() {
-          
           NSApp.sendAction(#selector(NSDocument.save(_:)), to: nil, from: self)
-    
       }
 
 }
