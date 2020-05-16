@@ -3,7 +3,6 @@
 //  AssetCatalogConstants
 //
 //  Created by Joseph A. Wardell on 5/14/20.
-//  Copyright © 2020 Joseph A. Wardell. All rights reserved.
 //
 
 import AppKit
