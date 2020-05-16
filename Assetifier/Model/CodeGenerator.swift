@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct CodeGnerator {
+class CodeGnerator {
     
     let images : [String]
     let colors : [String]
@@ -16,6 +16,66 @@ struct CodeGnerator {
     let url : URL?
     
     let settings : CodeGenerationSettings
+    
+    init(images:[String], colors:[String], url:URL?, settings:CodeGenerationSettings) {
+        self.images = images
+        self.colors = colors
+        self.url = url
+        self.settings = settings
+    }
+    
+    private var existingAssetNames = Set<String>()
+    
+    func safeVariableName(for assetName:String) -> String {
+
+        var out = assetName
+        
+        /*
+         
+         Constant and variable names can’t contain whitespace characters, mathematical symbols, arrows, private-use Unicode scalar values, or line- and box-drawing characters. Nor can they begin with a number, although numbers may be included elsewhere within the name.
+
+        - https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
+         */
+
+        /*
+         This method is actually more strict than the above, filtering out any symbols at all.
+         Better to cast a wider net...
+         
+         And it still allows some things that swift won't
+         e.g. case •
+         */
+        
+        // TODO: it would be awesome if we could handle emoji better, check out the discussion at https://stackoverflow.com/questions/24699576/get-description-of-emoji-character for a possible path to follow
+        
+        out = out.filter { !$0.isWhitespace }
+        out = out.filter { !$0.isMathSymbol }
+        out = out.filter { !$0.isPunctuation }
+        out = out.filter { !$0.isSymbol }
+
+        if let firstCharacter = out.first,
+            nil != Int(String(firstCharacter)) {
+            out = "_" + out
+        }
+        
+        if out.isEmpty {
+            out = "symbol"
+        }
+        
+        var unique = out
+        var count = 1
+        while existingAssetNames.contains(unique) {
+            unique = out + String(count)
+            count += 1
+        }
+        existingAssetNames.insert(unique)
+        out = unique
+        
+        if out != assetName {
+            out = "\(out) = \"\(assetName)\""
+        }
+        
+        return out
+    }
     
     var source : String {
             
@@ -48,13 +108,13 @@ struct CodeGnerator {
     """
                     
             let imageSources = images.sorted().map {
-                imageTemplate.replacingOccurrences(of: "toreplace", with: $0)
+                imageTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
             }
             
             let imagesSource = imagesTemplate.replacingOccurrences(of: "imageAssetsReplace", with: imageSources.joined(separator: "\n"))
             
             let colorSources = colors.sorted().map {
-                colorTemplate.replacingOccurrences(of: "toreplace", with: $0)
+                colorTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
             }
             
             let colorsSource = colorsTemplate.replacingOccurrences(of: "colorAssetsReplace", with: colorSources.joined(separator: "\n"))
