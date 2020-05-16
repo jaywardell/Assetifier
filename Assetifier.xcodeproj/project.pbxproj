@@ -41,7 +41,6 @@
 		7C988535246F151B000AE0A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C988537246F151B000AE0A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C988538246F151B000AE0A2 /* Assetifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Assetifier.entitlements; sourceTree = "<group>"; };
-		7C98853E246F158E000AE0A2 /* notestoself.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notestoself.txt; sourceTree = "<group>"; };
 		7C98853F246F15C6000AE0A2 /* AssetCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCatalog.swift; sourceTree = "<group>"; };
 		7C988543246F15F5000AE0A2 /* CodeGenerationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeGenerationSettings.swift; sourceTree = "<group>"; };
 		7C988544246F15F5000AE0A2 /* CodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
@@ -75,7 +74,6 @@
 		7C98851D246F1517000AE0A2 = {
 			isa = PBXGroup;
 			children = (
-				7C98853E246F158E000AE0A2 /* notestoself.txt */,
 				7C9885BC246F8DE3000AE0A2 /* .gitignore */,
 				7C9885B9246F8B5E000AE0A2 /* LICENSE.txt */,
 				7C9885BA246F8B70000AE0A2 /* README.md */,
