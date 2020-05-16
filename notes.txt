@@ -1,4 +1,3 @@
-TODO: my own toolbar icons
 TODO: post to Github
 TODO: make page on portfolio page
 TODO: better icon
