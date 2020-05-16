@@ -15,7 +15,7 @@ If you change the asset catalog, simply tap the reload button to get an updated 
 Stop using stringly-typed assets like an animal.  Assetifier makes generating constants from your Asset Catalog a one minute process.
 
 ### Request for Help
-<img align="LEFT" src="https://github.com/jaywardell/Assetifier/blob/master/Assetifier/Assets.xcassets/AppIcon.appiconset/mac-appicon-128@1x.png" alt="icon">
+<img align="RIGHT" src="https://github.com/jaywardell/Assetifier/blob/master/Assetifier/Assets.xcassets/AppIcon.appiconset/mac-appicon-128@1x.png" alt="icon">
 
 I am no graphic designer.  While I feel the icon for this project rightly expresses its philosophy, it is far from ideal aesthetically.  If anyone wanted to offer a better icon, I'd be very appreciative. Just @jaywardell on twitter or submit a pull request, whichever is easier for you.  Thanks. 
 
