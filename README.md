@@ -1,4 +1,4 @@
-### Assetifier
+### Assetifier 0.1
 
 This is a tool for creating constants from the resources in an XCode Asset Catalog.
 
