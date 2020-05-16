@@ -4,7 +4,11 @@ This is a tool for creating constants from the resources in an XCode Asset Catal
 
 <img align="CENTER" src="https://github.com/jaywardell/Assetifier/blob/master/Screenshots/top.png" alt="screenshot">
 
-Just open an asset catalog with Assetifier, and it will generate a swift file with enums for the images and colors found in the asset catalog.  You can also choose to add extensions for easily initializing various image and color objects using these constants in many of Apple's APIs.
+Just open an asset catalog with Assetifier, and it will generate a swift file with enums for the images and colors found in the asset catalog.  
+
+You can also choose to add extensions for easily initializing various image and color objects using these constants in many of Apple's APIs.
+
+<img align="CENTER" src="https://github.com/jaywardell/Assetifier/blob/master/Screenshots/bottom.png" alt="screenshot">
 
 If you change the asset catalog, simply tap the reload button to get an updated swift file.
 
