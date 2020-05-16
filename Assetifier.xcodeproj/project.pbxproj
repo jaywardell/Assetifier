@@ -28,8 +28,6 @@
 		7C98855D246F1674000AE0A2 /* UserDefaults+WindowFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98855B246F1674000AE0A2 /* UserDefaults+WindowFrame.swift */; };
 		7C98855F246F1686000AE0A2 /* UIView+depthSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98855E246F1686000AE0A2 /* UIView+depthSearch.swift */; };
 		7C9885BB246F8B70000AE0A2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7C9885BA246F8B70000AE0A2 /* README.md */; };
-		7C9885C3246F9050000AE0A2 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9885C1246F9050000AE0A2 /* top.png */; };
-		7C9885C4246F9050000AE0A2 /* bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9885C2246F9050000AE0A2 /* bottom.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,8 +226,6 @@
 				7C988536246F151B000AE0A2 /* Main.storyboard in Resources */,
 				7C988533246F151A000AE0A2 /* Preview Assets.xcassets in Resources */,
 				7C9885BB246F8B70000AE0A2 /* README.md in Resources */,
-				7C9885C3246F9050000AE0A2 /* top.png in Resources */,
-				7C9885C4246F9050000AE0A2 /* bottom.png in Resources */,
 				7C988530246F151A000AE0A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,7 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Assetifier/Preview Content\"";
-				DEVELOPMENT_TEAM = BU47XE2F27;
+				DEVELOPMENT_TEAM = 7HAJV4F6VL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Assetifier/Info.plist;
@@ -418,7 +414,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Assetifier/Preview Content\"";
-				DEVELOPMENT_TEAM = BU47XE2F27;
+				DEVELOPMENT_TEAM = 7HAJV4F6VL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Assetifier/Info.plist;
