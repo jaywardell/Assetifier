@@ -21,6 +21,9 @@ I am no graphic designer.  While I feel the icon for this project rightly expres
 
 Of course, I'll accept any other feedback on this project as well.
 
+### Thanks
+Assetifier uses Paul Hudson's excellent [Sourceful](https://github.com/twostraws/Sourceful) package to present source code with syntax highlighting.
+
 ### Contact
 
 twitter: [@jaywardell](https://twitter.com/jaywardell)
