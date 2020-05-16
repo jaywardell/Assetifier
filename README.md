@@ -15,6 +15,6 @@ Of course, I'll accept any other feedback on this project as well.
 
 ### Contact
 
-twitter: @jaywardell
+twitter: [@jaywardell](https://twitter.com/jaywardell)
 
 
