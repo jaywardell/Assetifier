@@ -13,6 +13,7 @@ struct ContentView: View {
     @ObservedObject var assets : AssetCatalog
     
     let showSidebar : Bool
+    let assetsHaveBeenUpdated : Bool
     
     var body: some View {
         HStack {
@@ -25,7 +26,7 @@ struct ContentView: View {
             VStack {
                 SelectableText(text:assets.source, selectable: true)
 
-                ButtonBar()
+                ButtonBar(showRefreshButton: assetsHaveBeenUpdated)
             }
             .frame(minWidth: 377, minHeight: 377)
         }
@@ -39,6 +40,6 @@ struct ContentView_Previews: PreviewProvider {
     @State static var showSidebar = true
     
     static var previews: some View {
-        ContentView(assets: AssetCatalog(imageNames: ["barbell"], colorNames: ["turquoise"]), showSidebar: showSidebar)
+        ContentView(assets: AssetCatalog(imageNames: ["barbell"], colorNames: ["turquoise"]), showSidebar: showSidebar, assetsHaveBeenUpdated: true)
     }
 }

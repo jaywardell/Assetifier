@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C5BE7B2247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BE7B1247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift */; };
+		7C5BE7B4247D9CAE00C7B7F9 /* DocumentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BE7B3247D9CAE00C7B7F9 /* DocumentWindow.swift */; };
+		7C5BE7B6247D9CBF00C7B7F9 /* DocumentWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BE7B5247D9CBF00C7B7F9 /* DocumentWindowController.swift */; };
 		7C98852A246F1517000AE0A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C988529246F1517000AE0A2 /* AppDelegate.swift */; };
 		7C98852C246F1517000AE0A2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98852B246F1517000AE0A2 /* Document.swift */; };
 		7C98852E246F1517000AE0A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98852D246F1517000AE0A2 /* ContentView.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C5BE7B1247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryChangeWatcher.swift; sourceTree = "<group>"; };
+		7C5BE7B3247D9CAE00C7B7F9 /* DocumentWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWindow.swift; sourceTree = "<group>"; };
+		7C5BE7B5247D9CBF00C7B7F9 /* DocumentWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWindowController.swift; sourceTree = "<group>"; };
 		7C988526246F1517000AE0A2 /* Assetifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assetifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C988529246F1517000AE0A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C98852B246F1517000AE0A2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 			children = (
 				7C988529246F1517000AE0A2 /* AppDelegate.swift */,
 				7C98852B246F1517000AE0A2 /* Document.swift */,
+				7C5BE7B1247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift */,
+				7C5BE7B3247D9CAE00C7B7F9 /* DocumentWindow.swift */,
+				7C5BE7B5247D9CBF00C7B7F9 /* DocumentWindowController.swift */,
 				7C988541246F15DC000AE0A2 /* Model */,
 				7C988542246F15E5000AE0A2 /* View */,
 				7C98852F246F151A000AE0A2 /* Assets.xcassets */,
@@ -239,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Joseph A. Wardell";
 				TargetAttributes = {
 					7C988525246F1517000AE0A2 = {
@@ -301,12 +310,15 @@
 			files = (
 				7C98855F246F1686000AE0A2 /* UIView+depthSearch.swift in Sources */,
 				7C988546246F15F5000AE0A2 /* CodeGenerator.swift in Sources */,
+				7C5BE7B4247D9CAE00C7B7F9 /* DocumentWindow.swift in Sources */,
 				7C98854E246F1606000AE0A2 /* GeneratedCodeSidebar.swift in Sources */,
 				7C988540246F15C7000AE0A2 /* AssetCatalog.swift in Sources */,
 				7C988552246F1606000AE0A2 /* SelectableText.swift in Sources */,
 				7C98852C246F1517000AE0A2 /* Document.swift in Sources */,
 				7C988550246F1606000AE0A2 /* NonEditableSyntaxTextView.swift in Sources */,
 				7C988551246F1606000AE0A2 /* ButtonBar.swift in Sources */,
+				7C5BE7B6247D9CBF00C7B7F9 /* DocumentWindowController.swift in Sources */,
+				7C5BE7B2247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift in Sources */,
 				7C98855C246F1674000AE0A2 /* UserDefaults+CodeGenerationSettings.swift in Sources */,
 				7C988556246F161A000AE0A2 /* Assets.swift in Sources */,
 				7C988553246F1606000AE0A2 /* DarkTheme.swift in Sources */,
@@ -469,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Assetifier/Preview Content\"";
-				DEVELOPMENT_TEAM = 7HAJV4F6VL;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Assetifier/Info.plist;
@@ -478,7 +490,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oldjewel.Assetifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -493,7 +505,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Assetifier/Preview Content\"";
-				DEVELOPMENT_TEAM = 7HAJV4F6VL;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Assetifier/Info.plist;
@@ -502,7 +514,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oldjewel.Assetifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

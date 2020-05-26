@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ButtonBar: View {
+    
+    let showRefreshButton : Bool
+    
     var body: some View {
         HStack {
             Button(action: toggleSidebar) {
@@ -19,6 +22,7 @@ struct ButtonBar: View {
             
             Spacer().frame(width: 21)
             
+            if showRefreshButton {
             Button(action: reload) {
                 Image(.refresh)
                 .resizable()
@@ -26,6 +30,8 @@ struct ButtonBar: View {
                     .frame(height: 21)
             }
             .buttonStyle(BorderlessButtonStyle())
+            }
+
             Spacer()
 
             Button(action: copy) {
@@ -65,6 +71,10 @@ struct ButtonBar: View {
 
 struct ButtonBar_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonBar()
+        Group {
+            ButtonBar(showRefreshButton: true)
+            ButtonBar(showRefreshButton: false)
+
+        }
     }
 }

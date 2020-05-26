@@ -7,60 +7,7 @@
 
 import Cocoa
 import SwiftUI
-
-class DocumentWindow : NSWindow {
-    override var representedURL: URL? {
-        didSet {
-            standardWindowButton(.documentIconButton)?.image = NSImage(.box)
-        }
-    }
-}
-
-class DocumentWindowController : NSWindowController, NSMenuItemValidation {
-    
-    @objc
-    func saveDocument(_ sender:Any) {
-        if let doc = document as? Document {
-            doc.save(self)
-        }
-    }
-    
-    @objc
-    override func selectAll(_ sender: Any?) {
-        
-        if let textView = window?.contentView?.firstDeepSubview(where: {
-            $0 is NSTextView
-        }) {
-            window?.makeFirstResponder(textView)
-            textView.perform(#selector(selectAll(_:)), with: sender, afterDelay: 0)
-        }
-    }
-
-    @objc
-    func toggleSidebar(_ sender:Any?) {
-        
-        if let doc = document as? Document {
-            doc.showSidebar = !doc.showSidebar
-        }
-    }
-    
-    @IBAction
-    func reload(_ sender:Any?) {
-        if let doc = document as? Document,
-            let fileURL = doc.fileURL {
-            try? doc.read(from: fileURL, ofType: "xcasset")
-        }
-    }
-    
-    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.action == #selector(toggleSidebar(_:)) {
-            guard let doc = document as? Document else { return false }
-            menuItem.title = doc.showSidebar ? "Hide Sidebar" : "Show Sidebar"
-        }
-        return true
-    }
-}
-
+import Combine
 
 class Document: NSDocument {
         
@@ -70,9 +17,25 @@ class Document: NSDocument {
     
     var assets : AssetCatalog? {
         didSet {
-            let contentView = ContentView(assets: assets!, showSidebar: showSidebar)
-            windowControllers.first?.window?.contentView = NSHostingView(rootView: contentView)
+            updateContentView()
         }
+    }
+    
+    var showSidebar = true {
+        didSet {
+            updateContentView()
+        }
+    }
+
+    var hasUpdate = false {
+        didSet {
+            updateContentView()
+        }
+    }
+    
+    private func updateContentView() {
+        let contentView = ContentView(assets: assets!, showSidebar: showSidebar, assetsHaveBeenUpdated: hasUpdate)
+        windowControllers.first?.window?.contentView = NSHostingView(rootView: contentView)
     }
     
     override var displayName: String! {
@@ -89,16 +52,10 @@ class Document: NSDocument {
         set {}
     }
     
-    var showSidebar = true {
-        didSet {
-            let contentView = ContentView(assets: assets!, showSidebar: showSidebar)
-            windowControllers.first?.window?.contentView = NSHostingView(rootView: contentView)
-        }
-    }
     
     override func makeWindowControllers() {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView(assets: assets!, showSidebar: showSidebar)
+        let contentView = ContentView(assets: assets!, showSidebar: showSidebar, assetsHaveBeenUpdated: false)
         
         // Create the window and set the content view.
         let window = DocumentWindow(
@@ -127,9 +84,20 @@ class Document: NSDocument {
         }
     }
             
+    private var directoryWatcher : DirectoryChangeWatcher?
+    private var subscribers = Set<AnyCancellable>()
+    
     override func read(from url: URL, ofType typeName: String) throws {
         assets = AssetCatalog(url)
-            }
+        
+        directoryWatcher = DirectoryChangeWatcher(directoryURL: url)
+        let sub = directoryWatcher?.didChange.sink { _ in
+            self.hasUpdate = true
+        }
+        subscribers.insert(sub!)
+
+        hasUpdate = false
+    }
     
     override func save(_ sender: Any?) {
         guard let window = windowControllers.first?.window else { return }
