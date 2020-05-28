@@ -20,37 +20,37 @@ public struct DarkTheme: SourceCodeTheme {
     }
     
     private static var lineNumbersColor: Color {
-        return Color(.darkLineNumbers)!
+        return Color(.darkLineNumbers)
     }
     
     public let lineNumbersStyle: LineNumbersStyle? = LineNumbersStyle(font: Font(name: "Menlo", size: 16)!, textColor: lineNumbersColor)
     
-    public let gutterStyle: GutterStyle = GutterStyle(backgroundColor: Color(.darkGutter)!, minimumWidth: 32)
+    public let gutterStyle: GutterStyle = GutterStyle(backgroundColor: Color(.darkGutter), minimumWidth: 32)
     
     public let font = Font(name: "Menlo", size: 15)!
     
-    public let backgroundColor = Color(.darkBackground)!
+    public let backgroundColor = Color(.darkBackground)
     
     public func color(for syntaxColorType: SourceCodeTokenType) -> Color {
         
         switch syntaxColorType {
         case .plain:
-            return Color(.darkTextPlain)!
+            return Color(.darkTextPlain)
             
         case .number:
-            return Color(.darkTextNumber)!
+            return Color(.darkTextNumber)
             
         case .string:
-            return Color(.darkTextString)!
+            return Color(.darkTextString)
             
         case .identifier:
-            return Color(.darkTextIdentifier)!
+            return Color(.darkTextIdentifier)
             
         case .keyword:
-            return Color(.darkTextKeyword)!
+            return Color(.darkTextKeyword)
             
         case .comment:
-            return Color(.darkTextComment)!
+            return Color(.darkTextComment)
             
         case .editorPlaceholder:
             return backgroundColor

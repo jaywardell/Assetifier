@@ -236,8 +236,8 @@ class CodeGnerator {
         private static let uiimageExtension : String =
     """
     extension UIImage {
-        convenience init?(_ asset:ImageAssets) {
-            self.init(named:asset.rawValue)
+        convenience init(_ asset:ImageAssets) {
+            self.init(named:asset.rawValue)!
         }
     }
 
@@ -246,8 +246,8 @@ class CodeGnerator {
         private static let uicolorExtension : String =
     """
     extension UIColor {
-        convenience init?(_ asset:ColorAssets) {
-            self.init(named:asset.rawValue)
+        convenience init(_ asset:ColorAssets) {
+            self.init(named:asset.rawValue)!
         }
     }
 
@@ -260,8 +260,8 @@ class CodeGnerator {
         private static let nsimageExtension : String =
     """
     extension NSImage {
-        convenience init?(_ asset:ImageAssets) {
-            self.init(named:asset.rawValue)
+        convenience init(_ asset:ImageAssets) {
+            self.init(named:asset.rawValue)!
         }
     }
 
@@ -270,8 +270,8 @@ class CodeGnerator {
         private static let nscolorExtension : String =
     """
     extension NSColor {
-        convenience init?(_ asset:ColorAssets) {
-            self.init(named:asset.rawValue)
+        convenience init(_ asset:ColorAssets) {
+            self.init(named:asset.rawValue)!
         }
     }
 
