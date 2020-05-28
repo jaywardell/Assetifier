@@ -20,6 +20,7 @@ final class CodeGenerationSettings : ObservableObject, Codable {
     @Published var createNSColorExtension = false
 
     @Published var createSKSpriteNodeExtension = false
+    @Published var createSKTextureExtension = false
 
     init() {
         self.createSwiftUIImageExtension = false
@@ -32,6 +33,7 @@ final class CodeGenerationSettings : ObservableObject, Codable {
         self.createNSColorExtension = false
 
         self.createSKSpriteNodeExtension = false
+        self.createSKTextureExtension = false
     }
     
     enum CodingKeys: CodingKey {
@@ -45,6 +47,7 @@ final class CodeGenerationSettings : ObservableObject, Codable {
         case createNSColorExtension
 
         case createSKSpriteNodeExtension
+        case createSKTextureExtension
     }
     
     func encode(to encoder: Encoder) throws {
@@ -60,6 +63,7 @@ final class CodeGenerationSettings : ObservableObject, Codable {
         try container.encode(createNSColorExtension, forKey: .createNSColorExtension)
 
         try container.encode(createSKSpriteNodeExtension, forKey: .createSKSpriteNodeExtension)
+        try container.encode(createSKTextureExtension, forKey: .createSKTextureExtension)
     }
     
     init(from decoder: Decoder) throws {
@@ -75,5 +79,6 @@ final class CodeGenerationSettings : ObservableObject, Codable {
         createNSColorExtension = try container.decode(Bool.self, forKey: .createNSColorExtension)
 
         createSKSpriteNodeExtension = try container.decode(Bool.self, forKey: .createSKSpriteNodeExtension)
+        createSKTextureExtension = try container.decode(Bool.self, forKey: .createSKTextureExtension)
     }
 }

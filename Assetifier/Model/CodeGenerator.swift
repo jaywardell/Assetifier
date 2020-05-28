@@ -107,65 +107,75 @@ class CodeGnerator {
         case toreplace
     """
                     
-            let imageSources = images.sorted().map {
-                imageTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
+        let imageSources = images.sorted().map {
+            imageTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
+        }
+        
+        let imagesSource = imagesTemplate.replacingOccurrences(of: "imageAssetsReplace", with: imageSources.joined(separator: "\n"))
+        
+        let colorSources = colors.sorted().map {
+            colorTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
+        }
+        
+        let colorsSource = colorsTemplate.replacingOccurrences(of: "colorAssetsReplace", with: colorSources.joined(separator: "\n"))
+        
+        var swiftui = ""
+        if settings.createSwiftUIImageExtension || settings.createSwiftUIColorExtension {
+            swiftui = Self.importSwiftUI + "\n\n"
+            if settings.createSwiftUIImageExtension {
+                swiftui += Self.swiftuiimageExtension
             }
-            
-            let imagesSource = imagesTemplate.replacingOccurrences(of: "imageAssetsReplace", with: imageSources.joined(separator: "\n"))
-            
-            let colorSources = colors.sorted().map {
-                colorTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
+            if settings.createSwiftUIImageExtension && settings.createSwiftUIColorExtension {
+                swiftui += "\n"
             }
-            
-            let colorsSource = colorsTemplate.replacingOccurrences(of: "colorAssetsReplace", with: colorSources.joined(separator: "\n"))
-            
-            var swiftui = ""
-            if settings.createSwiftUIImageExtension || settings.createSwiftUIColorExtension {
-                swiftui = Self.importSwiftUI + "\n\n"
-                if settings.createSwiftUIImageExtension {
-                    swiftui += Self.swiftuiimageExtension
-                }
-                if settings.createSwiftUIImageExtension && settings.createSwiftUIColorExtension {
-                    swiftui += "\n"
-                }
-                if settings.createSwiftUIColorExtension {
-                    swiftui += Self.swiftuicolorExtension
-                }
+            if settings.createSwiftUIColorExtension {
+                swiftui += Self.swiftuicolorExtension
             }
-            
-            var uiKit = ""
-            if settings.createUIImageExtension || settings.createUIColorExtension {
-                uiKit = Self.importUIKit + "\n\n"
-                if settings.createUIImageExtension {
-                    uiKit += Self.uiimageExtension
-                }
-                if settings.createUIImageExtension && settings.createUIColorExtension {
-                    uiKit += "\n"
-                }
-                if settings.createUIColorExtension {
-                    uiKit += Self.uicolorExtension
-                }
+        }
+        
+        var uiKit = ""
+        if settings.createUIImageExtension || settings.createUIColorExtension {
+            uiKit = Self.importUIKit + "\n\n"
+            if settings.createUIImageExtension {
+                uiKit += Self.uiimageExtension
             }
-
-            var appKit = ""
-            if settings.createNSImageExtension || settings.createNSColorExtension {
-                appKit = Self.importAppKit + "\n\n"
-                if settings.createNSImageExtension {
-                    appKit += Self.nsimageExtension
-                }
-                if settings.createNSImageExtension && settings.createNSColorExtension {
-                    appKit += "\n"
-                }
-                if settings.createNSColorExtension {
-                    appKit += Self.nscolorExtension
-                }
-              }
-            
-            var spriteKit = ""
+            if settings.createUIImageExtension && settings.createUIColorExtension {
+                uiKit += "\n"
+            }
+            if settings.createUIColorExtension {
+                uiKit += Self.uicolorExtension
+            }
+        }
+        
+        var appKit = ""
+        if settings.createNSImageExtension || settings.createNSColorExtension {
+            appKit = Self.importAppKit + "\n\n"
+            if settings.createNSImageExtension {
+                appKit += Self.nsimageExtension
+            }
+            if settings.createNSImageExtension && settings.createNSColorExtension {
+                appKit += "\n"
+            }
+            if settings.createNSColorExtension {
+                appKit += Self.nscolorExtension
+            }
+        }
+        
+        var spriteKit = ""
+        if settings.createSKSpriteNodeExtension || settings.createSKTextureExtension {
+            spriteKit = Self.importSpriteKit + "\n\n"
             if settings.createSKSpriteNodeExtension {
-                spriteKit = Self.importSpriteKit + "\n\n" + Self.skspritenodeExtension
+                spriteKit += Self.skspritenodeExtension
+            }
+            if settings.createSKSpriteNodeExtension && settings.createSKTextureExtension {
+                spriteKit += "\n"
             }
             
+            if settings.createSKTextureExtension {
+                spriteKit += Self.sktextureExtension
+            }
+        }
+
             func header(named name:String) -> String {
     """
     //
@@ -286,6 +296,16 @@ class CodeGnerator {
             private static let skspritenodeExtension : String =
     """
     extension SKSpriteNode {
+        convenience init(_ asset:ImageAssets) {
+            self.init(named:asset.rawValue)
+        }
+    }
+
+    """
+
+            private static let sktextureExtension : String =
+    """
+    extension SKTexture {
         convenience init(_ asset:ImageAssets) {
             self.init(named:asset.rawValue)
         }

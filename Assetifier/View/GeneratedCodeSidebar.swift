@@ -82,6 +82,12 @@ struct GeneratedCodeSidebar: View {
                 }
                 .font(.callout)
                 .disabled(!assetCatalog.hasImages)
+
+                Toggle(isOn: $settings.createSKTextureExtension) {
+                    Text("SKTexture")
+                }
+                .font(.callout)
+                .disabled(!assetCatalog.hasImages)
             }
             .padding([.leading, .bottom], 8)
             
