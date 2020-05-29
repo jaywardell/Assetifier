@@ -55,8 +55,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if let openPanel = NSApp.windows.first(where: { $0 is NSOpenPanel }) as? NSOpenPanel {
             openPanel.cancel(self)
+            
         }
-        
     }
+
 }
 

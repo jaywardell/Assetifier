@@ -105,12 +105,12 @@ class Document: NSDocument {
         let panel = NSSavePanel()
         panel.nameFieldStringValue = fileURL?.deletingPathExtension().lastPathComponent ?? "Assets"
         panel.allowedFileTypes = ["swift"]
-        panel.beginSheetModal(for: window) { response in
-            if response == .OK {
+        panel.beginSheetModal(for: window) { [weak self]  in guard let self = self else { return }
+
+            if $0 == .OK {
                 guard let destination = panel.url else { return }
                 do {
                     try self.assets?.source.write(to: destination, atomically: true, encoding: .utf8)
-//                    NSWorkspace.shared.activateFileViewerSelecting([destination])
                 }
                 catch {
                     Swift.print("error writing generated file to \(destination): \(error)")
@@ -167,6 +167,7 @@ extension Document : NSWindowDelegate {
             pasteboard.declareTypes([.string], owner: self)
             pasteboard.setString(stringToDrag , forType: .string)
         }
+        
         return true
     }
 }

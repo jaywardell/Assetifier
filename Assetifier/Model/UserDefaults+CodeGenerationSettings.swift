@@ -9,11 +9,15 @@ import Foundation
 
 extension UserDefaults {
     
+    private func key(for url:URL) -> String {
+        "settings"+url.path
+    }
+    
     func codeGenerationSettings(for url:URL) -> CodeGenerationSettings? {
         
-        guard let data = value(forKey: "settings"+String(url.hashValue)) as? Data else { return nil }
+        guard let data = value(forKey: key(for: url)) as? Data else { return nil }
         do {
-        return try JSONDecoder().decode(CodeGenerationSettings.self, from: data)
+            return try JSONDecoder().decode(CodeGenerationSettings.self, from: data)
         }
         catch {
             print(error)
@@ -24,7 +28,7 @@ extension UserDefaults {
     func set(codeGenerationSettings:CodeGenerationSettings, for url:URL) {
         
         if let data = try? JSONEncoder().encode(codeGenerationSettings) {
-            setValue(data, forKey: "settings"+String(url.hashValue))
+            setValue(data, forKey: key(for: url))
         }
     }
     
