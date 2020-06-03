@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C47A93B24880AA700B8D3BE /* Array+CaseInsensitiveSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93A24880AA700B8D3BE /* Array+CaseInsensitiveSort.swift */; };
+		7C47A93D24880B0700B8D3BE /* FileManager+DirectoryContentsFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47A93C24880B0700B8D3BE /* FileManager+DirectoryContentsFiltering.swift */; };
 		7C5BE7B2247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BE7B1247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift */; };
 		7C5BE7B4247D9CAE00C7B7F9 /* DocumentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BE7B3247D9CAE00C7B7F9 /* DocumentWindow.swift */; };
 		7C5BE7B6247D9CBF00C7B7F9 /* DocumentWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5BE7B5247D9CBF00C7B7F9 /* DocumentWindowController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C47A93A24880AA700B8D3BE /* Array+CaseInsensitiveSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+CaseInsensitiveSort.swift"; sourceTree = "<group>"; };
+		7C47A93C24880B0700B8D3BE /* FileManager+DirectoryContentsFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DirectoryContentsFiltering.swift"; sourceTree = "<group>"; };
 		7C5BE7B1247D9B4C00C7B7F9 /* DirectoryChangeWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryChangeWatcher.swift; sourceTree = "<group>"; };
 		7C5BE7B3247D9CAE00C7B7F9 /* DocumentWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWindow.swift; sourceTree = "<group>"; };
 		7C5BE7B5247D9CBF00C7B7F9 /* DocumentWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWindowController.swift; sourceTree = "<group>"; };
@@ -159,8 +163,10 @@
 				7C98853F246F15C6000AE0A2 /* AssetCatalog.swift */,
 				7C988543246F15F5000AE0A2 /* CodeGenerationSettings.swift */,
 				7C988544246F15F5000AE0A2 /* CodeGenerator.swift */,
+				7C47A93A24880AA700B8D3BE /* Array+CaseInsensitiveSort.swift */,
 				7C98855A246F1674000AE0A2 /* UserDefaults+CodeGenerationSettings.swift */,
 				7C98855B246F1674000AE0A2 /* UserDefaults+WindowFrame.swift */,
+				7C47A93C24880B0700B8D3BE /* FileManager+DirectoryContentsFiltering.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 				7C98854E246F1606000AE0A2 /* GeneratedCodeSidebar.swift in Sources */,
 				7C988540246F15C7000AE0A2 /* AssetCatalog.swift in Sources */,
 				7C988552246F1606000AE0A2 /* SelectableText.swift in Sources */,
+				7C47A93D24880B0700B8D3BE /* FileManager+DirectoryContentsFiltering.swift in Sources */,
 				7C98852C246F1517000AE0A2 /* Document.swift in Sources */,
 				7C988550246F1606000AE0A2 /* NonEditableSyntaxTextView.swift in Sources */,
 				7C988551246F1606000AE0A2 /* ButtonBar.swift in Sources */,
@@ -333,6 +340,7 @@
 				7C98852A246F1517000AE0A2 /* AppDelegate.swift in Sources */,
 				7C98852E246F1517000AE0A2 /* ContentView.swift in Sources */,
 				7C98854F246F1606000AE0A2 /* LightTheme.swift in Sources */,
+				7C47A93B24880AA700B8D3BE /* Array+CaseInsensitiveSort.swift in Sources */,
 				7C98855D246F1674000AE0A2 /* UserDefaults+WindowFrame.swift in Sources */,
 				7C988545246F15F5000AE0A2 /* CodeGenerationSettings.swift in Sources */,
 			);

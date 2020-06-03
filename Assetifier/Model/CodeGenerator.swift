@@ -107,13 +107,13 @@ class CodeGnerator {
         case toreplace
     """
                     
-        let imageSources = images.sorted().map {
+        let imageSources = images.caseInsensitiveSort().map {
             imageTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
         }
         
         let imagesSource = imagesTemplate.replacingOccurrences(of: "imageAssetsReplace", with: imageSources.joined(separator: "\n"))
         
-        let colorSources = colors.sorted().map {
+        let colorSources = colors.caseInsensitiveSort().map {
             colorTemplate.replacingOccurrences(of: "toreplace", with: safeVariableName(for: $0))
         }
         

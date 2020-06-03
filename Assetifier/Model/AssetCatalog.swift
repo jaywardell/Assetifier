@@ -64,18 +64,17 @@ extension AssetCatalog {
     convenience init(_ url:URL) {
                 
         let fm = FileManager()
-        let ims = try? fm.contentsOfDirectory(at: url, includingPropertiesForKeys: [], options: [.skipsHiddenFiles, .skipsPackageDescendants])
-            .filter({ $0.pathExtension == "imageset" })
+        let ims = fm.children(of: url, withExtension: "imageset")
             .map {
                 $0.deletingPathExtension().lastPathComponent
             }
         
-        let cls = try? fm.contentsOfDirectory(at: url, includingPropertiesForKeys: [], options: [.skipsHiddenFiles, .skipsPackageDescendants])
-            .filter({ $0.pathExtension == "colorset" })
+        let cls = fm.children(of: url, withExtension: "colorset")
+
             .map {
                 $0.deletingPathExtension().lastPathComponent
             }
-        self.init(imageNames: ims ?? [], colorNames: cls ?? [], url:url)
+        self.init(imageNames: ims, colorNames: cls, url:url)
     }
 }
 
