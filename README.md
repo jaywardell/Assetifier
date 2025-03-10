@@ -2,6 +2,8 @@
 
 This is a tool for creating constants from the resources in an XCode Asset Catalog.
 
+It's pretty much defunct now since XCode autogenerates constants from yur asset catalog, but I'm leaving it up in case anyone is interested.
+
 <img align="CENTER" src="https://github.com/jaywardell/Assetifier/blob/master/Screenshots/top.png" alt="screenshot">
 
 Just open an asset catalog with Assetifier, and it will generate a swift file with enums for the images and colors found in the asset catalog.  
@@ -26,6 +28,6 @@ Assetifier uses Paul Hudson's excellent [Sourceful](https://github.com/twostraws
 
 ### Contact
 
-twitter: [@jaywardell](https://twitter.com/jaywardell)
+bluesky: [@jaywardell]([https://bsky.app/jayward](https://bsky.app/profile/jaywardell.bsky.social))
 
 
